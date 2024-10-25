@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        input[type="text"] {
+            width: 150px;
+            margin: 5px 0;
+            padding: 5px;
+            font-size: 1rem;
+        }
+        input[type="button"] {
+            padding: 10px 15px;
+            margin: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        #result {
+            background-color: #f0f0f0;
+            border: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Simple Calculator</h2>
+    <div>
+        <label for="num1">Number 1:</label><br>
+        <input type="text" id="num1" placeholder="Enter first number"><br>
+
+        <label for="num2">Number 2:</label><br>
+        <input type="text" id="num2" placeholder="Enter second number"><br><br>
+
+        <input type="button" value="Add" onclick="calculate('add')">
+        <input type="button" value="Subtract" onclick="calculate('sub')">
+        <input type="button" value="Multiply" onclick="calculate('mul')">
+        <input type="button" value="Divide" onclick="calculate('div')"><br><br>
+
+        <label for="result">Result:</label><br>
+        <input type="text" id="result" readonly>
+    </div>
+
+    <script>
+        function calculate(operation) {
+            // Get the values from the text boxes
+            var num1 = parseFloat(document.getElementById('num1').value);
+            var num2 = parseFloat(document.getElementById('num2').value);
+            var result;
+
+            // Perform the calculation based on the operation
+            switch(operation) {
+                case 'add':
+                    result = num1 + num2;
+                    break;
+                case 'sub':
+                    result = num1 - num2;
+                    break;
+                case 'mul':
+                    result = num1 * num2;
+                    break;
+                case 'div':
+                    result = num1 / num2;
+                    break;
+                default:
+                    result = 'Invalid Operation';
+            }
+
+            // Display the result in the result textbox
+            document.getElementById('result').value = result;
+        }
+    </script>
+
+</body>
+</html>
